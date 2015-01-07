@@ -1,0 +1,90 @@
+/********************
+¡MIXINS
+********************/
+@mixin gridMachine($numPerRow, $margin) {
+    width: ((100% - (($numPerRow - 1) * $margin)) / $numPerRow);
+    margin-right: $margin;
+    &:nth-child(#{$numPerRow}n) {
+        margin-right: 0;
+    }
+}
+
+@mixin animation($str) {
+     -webkit-animation: #{$str};
+        -moz-animation: #{$str};
+         -ms-animation: #{$str};
+          -o-animation: #{$str};
+             animation: #{$str};
+}
+
+@mixin borderBox() {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+@mixin boxShadow($str) {
+    -webkit-box-shadow: #{$str};
+       -moz-box-shadow: #{$str};
+        -ms-box-shadow: #{$str};
+         -o-box-shadow: #{$str};
+            box-shadow: #{$str};
+}
+
+@mixin transition($str) {
+    -webkit-transition: #{$str};
+       -moz-transition: #{$str};
+        -ms-transition: #{$str};
+         -o-transition: #{$str};
+            transition: #{$str};
+}
+
+@mixin transform($str) {
+    -webkit-transform: #{$str};
+    -moz-transform: #{$str};
+    -ms-transform: #{$str};
+    -o-transform: #{$str};
+    transform: #{$str};
+}
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+
+
+/********************
+¡CLASSES
+********************/
+.lk-clear:after {
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+}
+
+.lk-squeeze {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    max-width: 1024px;
+}
+
+.lk-squeeze:after {
+    @extend .lk-clear;
+}
