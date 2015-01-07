@@ -256,7 +256,7 @@ pre code {
 /* Comment */
 .err {
   color: #AA0000;
-  background-color: #ffaaaa; }
+  background-color: #FFAAAA; }
 
 /* Error */
 .k {
@@ -286,7 +286,7 @@ pre code {
 /* Comment.Special */
 .gd {
   background-color: #FFCCCC;
-  border: 1px solid #cc0000; }
+  border: 1px solid #CC0000; }
 
 /* Generic.Deleted */
 .ge {
@@ -294,7 +294,7 @@ pre code {
 
 /* Generic.Emph */
 .gr {
-  color: red; }
+  color: #FF0000; }
 
 /* Generic.Error */
 .gh {
@@ -303,11 +303,11 @@ pre code {
 /* Generic.Heading */
 .gi {
   background-color: #CCFFCC;
-  border: 1px solid #00cc00; }
+  border: 1px solid #00CC00; }
 
 /* Generic.Inserted */
 .go {
-  color: #aaaaaa; }
+  color: #AAAAAA; }
 
 /* Generic.Output */
 .gp {
@@ -320,7 +320,7 @@ pre code {
 
 /* Generic.Subheading */
 .gt {
-  color: #99cc66; }
+  color: #99CC66; }
 
 /* Generic.Traceback */
 .kc {
@@ -348,7 +348,7 @@ pre code {
 
 /* Keyword.Type */
 .m {
-  color: #ff6600; }
+  color: #FF6600; }
 
 /* Literal.Number */
 .s {
@@ -372,7 +372,7 @@ pre code {
 
 /* Name.Constant */
 .nd {
-  color: #9999ff; }
+  color: #9999FF; }
 
 /* Name.Decorator */
 .ni {
@@ -384,11 +384,11 @@ pre code {
 
 /* Name.Exception */
 .nf {
-  color: #cc00ff; }
+  color: #CC00FF; }
 
 /* Name.Function */
 .nl {
-  color: #9999ff; }
+  color: #9999FF; }
 
 /* Name.Label */
 .nn {
@@ -412,27 +412,27 @@ pre code {
 
 /* Text.Whitespace */
 .mf {
-  color: #ff6600; }
+  color: #FF6600; }
 
 /* Literal.Number.Float */
 .mh {
-  color: #ff6600; }
+  color: #FF6600; }
 
 /* Literal.Number.Hex */
 .mi {
-  color: #ff6600; }
+  color: #FF6600; }
 
 /* Literal.Number.Integer */
 .mo {
-  color: #ff6600; }
+  color: #FF6600; }
 
 /* Literal.Number.Oct */
 .sb {
-  color: #cc3300; }
+  color: #CC3300; }
 
 /* Literal.String.Backtick */
 .sc {
-  color: #cc3300; }
+  color: #CC3300; }
 
 /* Literal.String.Char */
 .sd {
@@ -441,7 +441,7 @@ pre code {
 
 /* Literal.String.Doc */
 .s2 {
-  color: #cc3300; }
+  color: #CC3300; }
 
 /* Literal.String.Double */
 .se {
@@ -449,27 +449,27 @@ pre code {
 
 /* Literal.String.Escape */
 .sh {
-  color: #cc3300; }
+  color: #CC3300; }
 
 /* Literal.String.Heredoc */
 .si {
-  color: #aa0000; }
+  color: #AA0000; }
 
 /* Literal.String.Interpol */
 .sx {
-  color: #cc3300; }
+  color: #CC3300; }
 
 /* Literal.String.Other */
 .sr {
-  color: #33aaaa; }
+  color: #33AAAA; }
 
 /* Literal.String.Regex */
 .s1 {
-  color: #cc3300; }
+  color: #CC3300; }
 
 /* Literal.String.Single */
 .ss {
-  color: #ffcc33; }
+  color: #FFCC33; }
 
 /* Literal.String.Symbol */
 .bp {
@@ -489,7 +489,7 @@ pre code {
 
 /* Name.Variable.Instance */
 .il {
-  color: #ff6600; }
+  color: #FF6600; }
 
 /* Literal.Number.Integer.Long */
 .css .o,
@@ -500,22 +500,7 @@ pre code {
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0; }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #2a2a2a;
-  font-weight: normal; }
-
-a {
-  color: #0088cc;
-  text-decoration: none; }
+  box-sizing: border-box; }
 
 /******************************************************************************
 ¡STRUCTURE
@@ -526,7 +511,7 @@ html {
 body {
   height: 100%;
   font-family: "PT Sans", sans-serif;
-  color: #5a5a5a;
+  color: #5A5A5A;
   font-size: 1rem; }
 
 .lk-wrap {
@@ -536,8 +521,8 @@ body {
   margin-bottom: -7rem; }
 
 header {
-  background: #2a3440;
-  height: 25rem;
+  background: #2A3440;
+  height: 20rem;
   position: relative; }
 
 .lk-push,
@@ -545,7 +530,7 @@ footer {
   height: 7rem; }
 
 footer {
-  background: #2a3440;
+  background: #2A3440;
   padding: 0 3rem; }
   footer a {
     display: inline-block;
@@ -569,35 +554,15 @@ footer {
   display: table;
   width: 100%;
   table-layout: fixed;
-  border-bottom: solid 1px #dfe1e8; }
+  border-bottom: solid 1px #DFE1E8; }
   .lk-section .lk-col {
     display: table-cell;
     padding: 3rem;
     vertical-align: top; }
   .lk-section .lk-col + .lk-col {
-    background: #f7f7f9; }
+    background: #F7F7F9; }
   .lk-section .lk-code-example {
     margin: 0; }
-  .lk-section code,
-  .lk-section pre {
-    font-family: "PT Mono", Menlo, "Courier New", monospace;
-    font-size: 95%; }
-  .lk-section code {
-    font-size: 85%;
-    color: #D44950; }
-  .lk-section pre {
-    display: block;
-    line-height: 1.4;
-    margin: 0 0 1rem;
-    white-space: pre;
-    white-space: pre-wrap; }
-    .lk-section pre code {
-      padding: 0;
-      color: inherit;
-      background-color: transparent;
-      border: 0; }
-  .lk-section .lk-code-example pre {
-    margin-bottom: 0; }
   .lk-section h3 {
     font-size: 1.75rem; }
   .lk-section h4 {
@@ -608,10 +573,12 @@ footer {
       margin-bottom: .25rem; }
 
 .table-of-contents .lk-col + .lk-col {
-  background: white; }
+  background: #FFF; }
 
 .lk-heading {
-  background: #dfe1e8;
+  background: #DFE1E8;
   padding: 3rem 3rem 2.5rem; }
   .lk-heading h2 {
     font-size: 50px; }
+
+/*# sourceMappingURL=main.css.map */

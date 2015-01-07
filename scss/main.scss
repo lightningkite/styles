@@ -8,23 +8,6 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing:    border-box;
     box-sizing:         border-box;
-    margin: 0;
-    padding: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	color: color(accent-4);
-	font-weight: normal;
-}
-
-a {
-	color: color(accent-5);
-	text-decoration: none;
 }
 
 
@@ -104,34 +87,6 @@ footer {
 	.lk-code-example {
 		margin: 0;
 	}
-	code,
-	pre {
-		font-family: "PT Mono", Menlo, "Courier New", monospace;
-		font-size: 95%;
-	}
-	code {
-		font-size: 85%;
-		color: #D44950;
-	}
-	pre {
-		display: block;
-		line-height: 1.4;
-		margin: 0 0 1rem;
-		white-space: pre;
-		white-space: pre-wrap;
-		code {
-			padding: 0;
-			color: inherit;
-			background-color: rgba(0, 0, 0, 0);
-			border: 0;
-		}
-	}
-	.lk-code-example {
-		pre {
-			margin-bottom: 0;
-		}
-	}
-
 	h3 {
 		font-size: 1.75rem;
 	}
