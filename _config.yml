@@ -1,7 +1,7 @@
 name:          Code Guide by Lightningkite
 description:   Standards for developing flexible, durable, and sustainable code.
 url:           http://lightningkite.github.io
-baseurl:       /style
+baseurl:       /styles
 
 markdown:      rdiscount
 permalink:     pretty
