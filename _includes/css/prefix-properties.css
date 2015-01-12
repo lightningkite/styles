@@ -1,0 +1,20 @@
+/* Preferred Method */
+
+@mixin boxShadow($str) {
+    -webkit-box-shadow: #{$str};
+       -moz-box-shadow: #{$str};
+        -ms-box-shadow: #{$str};
+         -o-box-shadow: #{$str};
+            box-shadow: #{$str};
+}
+
+.class {
+	boxShadow(1px, 1px, 1px, #000);
+}
+
+
+/* Other Method */
+.selector {
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    		box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}

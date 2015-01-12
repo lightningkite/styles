@@ -1,0 +1,27 @@
+.product-container {
+    margin: 50px 0 0;
+    .product {
+        @include gridMachine(3, 1%);
+        float: left;
+        height: auto;
+        img {
+            width: 100%;
+        }
+        &:nth-child(2) {
+            margin-top: 150px;
+        }
+    }
+}
+@media screen and (max-width: breakpoint(tablet)) {
+    .product-container {
+        text-align: center;
+        .product {
+            display: inline-block;
+            float: none;
+            width: 250px;
+            &:nth-child(2) {
+                margin-top: 0;
+            }
+        }
+    }
+}

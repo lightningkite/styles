@@ -1,0 +1,31 @@
+/*===========================================================================*\
+                                    ¡VARIABLES
+\*===========================================================================*/
+$breakpoints: (
+    phone:      450px,
+    phone-lg:   650px,
+    tablet:     767px,
+    tablet-lg:  992px,
+    desktop-lg: 1024px,
+    desktop-xl: 1400px
+);
+
+
+
+
+/*------------------------------------*\
+           Helper functions
+\*------------------------------------*/
+/**
+* so we don't always have to 
+* type 'map-get' in our stylesheet
+*
+* e.g. background: color(color-100);
+*/
+@function breakpoint($key) {
+    @if map-has-key($breakpoints, $key) {
+        @return map-get($breakpoints, $key);
+    }
+    @warn "Unknown #{$key} in breakpoints map";
+    @return null;
+}
