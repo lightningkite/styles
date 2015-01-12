@@ -37,25 +37,25 @@ layout: default
             {% highlight js %}{% include js/quotes.js %}{% endhighlight %}
         </div>
     </div>
-    <div class="section">
-        <div class="col">
-            <h3>Strings</h3>
-            <p>Use single quotes for strings.</p>
-        </div>
-        <div class="col">
-            {% highlight js %}{% include js/quotes.js %}{% endhighlight %}
-        </div>
-    </div>
     <div class="heading">
         <h2>Angular</h2>
     </div>
     <div class="section">
         <div class="col">
-            <h3>Strings</h3>
-            <p>Use single quotes for strings.</p>
+            <h3>Wrap Components in an <a href="http://stackoverflow.com/a/8228308/2755042" target="_BLANK">IIFE</a></h3>
+            <p>This helps remove variables from the global scope. More importantly, when minified, this helps avoid variable collisions.</p>
         </div>
         <div class="col">
-            {% highlight js %}{% include js/quotes.js %}{% endhighlight %}
+            {% highlight js %}{% include angular/iife.js %}{% endhighlight %}
+        </div>
+    </div>
+    <div class="section">
+        <div class="col">
+            <h3>controllerAs with vm</h3>
+            <p>Use a capture variable for <code>this</code> when using the <code>controllerAs</code> syntax. Choose a consistent variable name such as <code>vm</code>, which stands for ViewModel.</p>
+        </div>
+        <div class="col">
+            {% highlight js %}{% include angular/controller-vm.js %}{% endhighlight %}
         </div>
     </div>
 </div>

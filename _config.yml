@@ -1,6 +1,7 @@
-name:          Code Guide by @mdo
-description:   Standards for developing flexible, durable, and sustainable HTML and CSS.
-url:           http://codeguide.co
+name:          Code Guide by Lightningkite
+description:   Standards for developing flexible, durable, and sustainable code.
+url:           http://lightningkite.github.io
+baseurl:       /styles
 
 markdown:      rdiscount
 permalink:     pretty
