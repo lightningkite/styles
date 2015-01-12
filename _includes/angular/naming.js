@@ -1,0 +1,3 @@
+.factory('LoginFactory', [function () {
+	...
+}
