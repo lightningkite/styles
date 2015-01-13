@@ -51,6 +51,15 @@ layout: default
     </div>
     <div class="section">
         <div class="col">
+            <h3>Keep Controllers Focused</a></h3>
+            <p>Define a controller for a view, and try not to reuse the controller for other views. Instead, move reusable logic to factories and keep the controller simple and focused on its view.</p>
+            <p>Only presentational logic should be inside a controller, avoid Business logic (delegate to Services).</p>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <div class="section">
+        <div class="col">
             <h3>Seperate Components with 3 Spaces</h3>
             <p>Seperating Angular components (controllers, services, factories) with three spaces will allow for distinct seprations and help readability.</p>
         </div>
@@ -67,8 +76,6 @@ layout: default
             {% highlight js %}{% include angular/naming.js %}{% endhighlight %}
         </div>
     </div>
-
-
     <div class="section">
         <div class="col">
             <h3>controllerAs with vm</h3>
