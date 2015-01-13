@@ -10,37 +10,44 @@ layout: default
     <div class="section table-of-contents">
         <div class="col">
             <h4>
-                <a href="">JavaScript</a>
+                <a href="#javascript">JavaScript</a>
             </h4>
             <ul>
-                <li><a href="">Link</a></li>
+                <li><a href="#javascript-syntax">Syntax</a></li>
             </ul>
         </div>
         <div class="col">
             <h4>
-                <a href="">Angular</a>
+                <a href="#angular">Angular</a>
             </h4>
             <ul>
-                <li><a href="">Link</a></li>
+                <li><a href="#angular-iife">Wrap Components in an IIFE</a></li>
+                <li><a href="#angular-focused">Keep Controllers Focused</a></li>
+                <li><a href="#angular-nameing">Nameing Angular Components</a></li>
+                <li><a href="#angular-controller-with-vm">controllerAs with vm</a></li>
             </ul>
         </div>
     </div>
-    <div class="heading">
+    <div class="heading" id="javascript">
         <h2>Javascript</h2>
     </div>
-    <div class="section">
+    <div class="section" id="javascript-syntax">
         <div class="col">
-            <h3>Strings</h3>
-            <p>Use single quotes for strings.</p>
+            <h3>Syntax</h3>
+            <ul>
+                <li>Use a 2-space tab to indent.</li>
+                <li>Always use single quotes.</li>
+                <li>Seperate Components with 3 Spaces</li>
+            </ul>
         </div>
         <div class="col">
-            {% highlight js %}{% include js/quotes.js %}{% endhighlight %}
+            {% highlight js %}{% include js/syntax.js %}{% endhighlight %}
         </div>
     </div>
-    <div class="heading">
+    <div class="heading" id="angular">
         <h2>Angular</h2>
     </div>
-    <div class="section">
+    <div class="section" id="angular-iife">
         <div class="col">
             <h3>Wrap Components in an <a href="http://stackoverflow.com/a/8228308/2755042" target="_BLANK">IIFE</a></h3>
             <p>This helps remove variables from the global scope. More importantly, when minified, this helps avoid variable collisions.</p>
@@ -49,7 +56,7 @@ layout: default
             {% highlight js %}{% include angular/iife.js %}{% endhighlight %}
         </div>
     </div>
-    <div class="section">
+    <div class="section" id="angular-focused">
         <div class="col">
             <h3>Keep Controllers Focused</a></h3>
             <p>Define a controller for a view, and try not to reuse the controller for other views. Instead, move reusable logic to factories and keep the controller simple and focused on its view.</p>
@@ -58,16 +65,7 @@ layout: default
         <div class="col">
         </div>
     </div>
-    <div class="section">
-        <div class="col">
-            <h3>Seperate Components with 3 Spaces</h3>
-            <p>Seperating Angular components (controllers, services, factories) with three spaces will allow for distinct seprations and help readability.</p>
-        </div>
-        <div class="col">
-            {% highlight js %}{% include angular/spacing.js %}{% endhighlight %}
-        </div>
-    </div>
-    <div class="section">
+    <div class="section" id="angular-nameing">
         <div class="col">
             <h3>Nameing Angular Components</h3>
             <p>In order to avoid confusion, Angular components should be named after what they are. Controllers should be <code>XxxCtrl</code>, Factories should have <code>XxxFactory</code>, services should have <code>XxxService</code>, etc.  </p>
@@ -76,7 +74,7 @@ layout: default
             {% highlight js %}{% include angular/naming.js %}{% endhighlight %}
         </div>
     </div>
-    <div class="section">
+    <div class="section" id="angular-controller-with-vm">
         <div class="col">
             <h3>controllerAs with vm</h3>
             <p>Use a capture variable for <code>this</code> when using the <code>controllerAs</code> syntax. Choose a consistent variable name such as <code>vm</code>, which stands for ViewModel.</p>
