@@ -1,0 +1,8 @@
+/* Bad example */
+.t { ... }
+.red { ... }
+.header { ... }
+
+/* Good example */
+.lk-tweet { ... }
+.lk-tweet-header { ... }

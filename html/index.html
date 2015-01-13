@@ -4,39 +4,194 @@ layout: default
 
 
 <div class="lk-content">
-	<div class="heading">
-		<h2>HTML/CSS - Table of contents</h2>
-	</div>
-	<div class="section">
-		<div class="col">
-			<h4>
-				<a href="">HTML</a>
-			</h4>
-			<ul>
-				<li><a href="">Link</a></li>
-			</ul>
-		</div>
-		<div class="col">
-			<h4>
-				<a href="">CSS</a>
-			</h4>
-			<ul>
-				<li><a href="">Link</a></li>
-			</ul>
-		</div>
-	</div>
-	<div class="heading">
-		<h2>HTML</h2>
-	</div>
-	<div class="section">
-		<div class="col">
-			<h3>Something</h3>
-		</div>
-		<div class="col">
-			{% highlight html %}{% include html/test.html %}{% endhighlight %}
-		</div>
-	</div>
-	<div class="heading">
-		<h2>CSS</h2>
-	</div>
+    <div class="heading">
+        <h2>HTML/CSS - Table of contents</h2>
+    </div>
+    <div class="section">
+        <div class="col">
+            <h4>
+                <a href="">HTML</a>
+            </h4>
+            <ul>
+                <li><a href="">Link</a></li>
+            </ul>
+        </div>
+        <div class="col">
+            <h4>
+                <a href="">CSS</a>
+            </h4>
+            <ul>
+                <li><a href="">Link</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="heading">
+        <h2>HTML</h2>
+    </div>
+    <div class="section">
+        <div class="col">
+            <h3>Syntax</h3>
+            <ul>
+                <li>Use a 4-space tab to indent.</li>
+                <li>Always use double quotes, never single quotes, on attributes.</li>
+                <li>Don't include a trailing slash in self-closing elements—the <a href="http://dev.w3.org/html5/spec-author-view/syntax.html#syntax-start-tag">HTML5 spec</a> says they're optional.</li>
+                <li>Don’t omit optional closing tags (e.g. <code>&lt;/li&gt;</code> or <code>&lt;/body&gt;</code>).</li>
+            </ul>
+        </div>
+        <div class="col">
+            {% highlight html %}{% include html/syntax.html %}{% endhighlight %}
+        </div>
+    </div>
+    <div class="section">
+        <div class="col">
+            <h3>HTML5 doctype</h3>
+            <p>Enforce standards mode and more consistent rendering in every browser possible with this simple doctype at the beginning of every HTML page.</p>
+        </div>
+        <div class="col">
+            {% highlight html %}{% include html/doctype.html %}{% endhighlight %}
+        </div>
+    </div>
+    <div class="section">
+        <div class="col">
+            <h3>CSS and JavaScript includes</h3>
+            <p>Per HTML5 spec, typically there is no need to specify a <code>type</code> when including CSS and JavaScript files as <code>text/css</code> and <code>text/javascript</code> are their respective defaults.</p>
+            <h4>HTML5 spec links</h4>
+            <ul>
+                <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-link-element">Using link</a></li>
+                <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-style-element">Using style</a></li>
+                <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/scripting-1.html#the-script-element">Using script</a></li>
+            </ul>
+        </div>
+        <div class="col">
+            {% highlight html %}{% include html/style-script.html %}{% endhighlight %}
+        </div>
+    </div>
+    <div class="section">
+        <div class="col">
+            <h3>Reducing markup</h3>
+            <p>Whenever possible, avoid superfluous parent elements when writing HTML. Many times this requires iteration and refactoring, but produces less HTML. Take the following example:</p>
+        </div>
+        <div class="col">
+            {% highlight html %}{% include html/reduce-markup.html %}{% endhighlight %}
+        </div>
+    </div>
+    <div class="heading">
+        <h2>CSS</h2>
+    </div>
+    <div class="section">
+        <div class="col">
+            <h3>Syntax</h3>
+            <ul>
+                <li>Use a 4-space tab to indent.</li>
+                <li>Include one space before the opening brace of declaration blocks for legibility.</li>
+                <li>Place closing braces of declaration blocks on a new line.</li>
+                <li>Include one space after <code>:</code> for each declaration.</li>
+                <li>Each declaration should appear on its own line for more accurate error reporting.</li>
+                <li>End all declarations with a semi-colon. The last declaration's is optional, but your code is more error prone without it.</li>
+                <li>Comma-separated property values should include a space after each comma (e.g., <code>box-shadow</code>).</li>
+                <li>Don't prefix property values or color parameters with a leading zero (e.g., <code>.5</code> instead of <code>0.5</code> and <code>-.5px</code> instead of <code>-0.5px</code>).</li>
+                <li>Lowercase all hex values, e.g., <code>#fff</code>. Lowercase letters are much easier to discern when scanning a document as they tend to have more unique shapes.</li>
+                <li>Use shorthand hex values where available, e.g., <code>#fff</code> instead of <code>#ffffff</code>.</li>
+                <li>Quote attribute values in selectors, e.g., <code>input[type="text"]</code>. <a href="http://mathiasbynens.be/notes/unquoted-attribute-values#css">They’re only optional in some cases</a>, and it’s a good practice for consistency.</li>
+                <li>Avoid specifying units for zero values, e.g., <code>margin: 0;</code> instead of <code>margin: 0px;</code>.</li>
+            </ul>
+        </div>
+        <div class="col">
+            {% highlight css %}{% include css/syntax.css %}{% endhighlight %}
+        </div>
+    </div>
+    <div class="section">
+        <div class="col">
+            <h3>Don't use <code>@import</code></h3>
+            <p>Compared to <code>&lt;link&gt;</code>s, <code>@import</code> is slower, adds extra page requests, and can cause other unforeseen problems. Avoid them and instead opt for an alternate approach:</p>
+            <ul>
+              <li>Use multiple <code>&lt;link&gt;</code> elements</li>
+              <li>Compile your CSS with a preprocessor like Sass or Less into a single file</li>
+            </ul>
+            <p>For more information, <a href="http://www.stevesouders.com/blog/2009/04/09/dont-use-import/">read this article by Steve Souders</a>.</p>
+        </div>
+        <div class="col">
+            {% highlight css %}{% include css/import.html %}{% endhighlight %}
+        </div>
+    </div>
+    <div class="section" id="css-prefixed-properties">
+        <div class="col">
+            <h3>Prefixed properties</h3>
+            <p>The preferred method when handling vendor prefix properties, is to use a Sass mixin. (See example)</p>
+            <p>When using vendor prefixed properties, indent each property such that the declaration's value lines up vertically for easy multi-line editing.</p>
+            <p>In Textmate, use <strong>Text &rarr; Edit Each Line in Selection</strong> (&#8963;&#8984;A). In Sublime Text 2, use <strong>Selection &rarr; Add Previous Line</strong> (&#8963;&#8679;&uarr;) and <strong>Selection &rarr;  Add Next Line</strong> (&#8963;&#8679;&darr;).</p>
+        </div>
+        <div class="col">
+            {% highlight css %}{% include css/prefix-properties.css %}{% endhighlight %}
+        </div>
+    </div>
+    <div class="section">
+        <div class="col">
+            <h3>Nesting in Less and Sass</h3>
+            <p>Avoid unnecessary nesting. Just because you can nest, doesn't mean you always should. Consider nesting only if you must scope styles to a parent and if there are multiple elements to be nested.</p>
+        </div>
+        <div class="col">
+            {% highlight scss %}{% include css/nesting.css %}{% endhighlight %}
+        </div>
+    </div>
+    <div class="section">
+        <div class="col">
+            <h3>Class Names</h3>
+            <ul>
+                <li>Keep classes lowercase and use dashes (not underscores or camelCase). Dashes serve as natural breaks in related class (e.g., <code>.btn</code> and <code>.btn-danger</code>).</li>
+                <li>Avoid excessive and arbitrary shorthand notation. <code>.btn</code> is useful for <em>button</em>, but <code>.s</code> doesn't mean anything.</li>
+                <li>Keep classes as short and succinct as possible.</li>
+                <li>Use meaningful names; use structural or purposeful names over presentational.</li>
+            </ul>
+        </div>
+        <div class="col">
+            {% highlight scss %}{% include css/class-names.css %}{% endhighlight %}
+        </div>
+    </div>
+    <div class="section">
+        <div class="col">
+            <h3>Organization</h3>
+            <ul>
+                <li>Organize sections of code by component.</li>
+                <li>Develop a consistent commenting hierarchy.</li>
+                <li>Use consistent white space to your advantage when separating sections of code for scanning larger documents.</li>
+                <li>When using multiple CSS files, break them down by component instead of page. Pages can be rearranged and components moved.</li>
+                <li>A 5 carriage returns before starting a new section</li>
+            </ul>
+        </div>
+        <div class="col">
+            {% highlight css %}{% include css/sections.css %}{% endhighlight %}
+        </div>
+    </div>
+    <div class="section">
+        <div class="col">
+            <h3>Comments and Stylesheet Widths</h3>
+            <p>Because CSS is a more like a declarative language than anything else, and tied directly to its HTML counterparts.</p>
+            <ul>
+                <li>Top level comments should be 80 columns long, and all styles should try to stay within that range. This allows for easier reading next to large HTML templates, in the terminal, and on Github pages.</li>
+            </ul>
+            <p>Any stand alone category in the stylesheet should have some sort of marker comment in order to be able to jump to that section code quickly. These sections should be prepended with a ¡ (option + 1) in order to search for them. For example:</p>
+        </div>
+        <div class="col">
+            {% highlight css %}{% include css/sections.css %}{% endhighlight %}
+        </div>
+    </div>
+    <div class="section">
+        <div class="col">
+            <h3>Media Queries</h3>
+            <p>Should be inline with the class or attribute that they apply to. This makes the stylesheet incredibly more modular and manageable.</p>
+        </div>
+        <div class="col">
+            {% highlight css %}{% include css/media-query.css %}{% endhighlight %}
+        </div>
+    </div>
+    <div class="section">
+        <div class="col">
+            <h3>Sublime Text Help</h3>
+            <p><a href="https://github.com/csscomb/csscomb-for-sublime" target="_blank">CSSComb</a> can help with a some of the structure and ordering of the css file. To the right is the user settings file to use to help with getting the correct spaces and stucturing of CSS declarations. To run CSSComb, select the text, right click, and select CSSComb.</p>
+        </div>
+        <div class="col">
+            {% highlight json %}{% include css/sublime.json %}{% endhighlight %}
+        </div>
+    </div>
 </div>
