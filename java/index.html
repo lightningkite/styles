@@ -4,7 +4,7 @@ layout: default
 
 
 <div class="lk-content">
-	<div class="heading">
+	<!-- <div class="heading">
 		<h2>Java - Table of contents</h2>
 	</div>
 	<div class="section">
@@ -24,13 +24,247 @@ layout: default
 				<li><a href="">Link</a></li>
 			</ul>
 		</div>
+	</div> -->
+
+	<div class="section">
+		<div class="col">
+			<h3>Description</h3>
+			<p>This Document is to give an overview of Java codeing style guidelines we wish to follow at Lightning Kite.  At this point we wish to follow most of the guidelines given here [Android  Code Guidelines](https://source.android.com/source/code-style.html).  The purpose of this document therefore is to give a more brief outline, comment on some of the guidelines at the afore mentioned URL, and be able to add any additional guidelines that we wish to follow.</p>
+		</div>
+		<div class="col">
+			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="col">
+			<h3>Don't Ignore Exceptions</h3>
+			<p>This almost always is the incorrect thing to do and the exception can be handled in a more appropriate way.</p>
+			<h4>Acceptable alternatives</h4>
+			<ul>
+				<li>Throw the exception up to the caller of your method, this allows you to throw the exception up to a level where you can handle the exception gracefully and appropriately.</li>
+				<li>Throw a new exception that's appropriate to your level of abstraction.</li>
+				<li>Substitute an appropriate value in the catch block (see second code example</li>
+				<li>Catch the exception and throw a new Runtime Exception **Only do this if the appropriate action is for the application to crash.**  At Lightning Kite this most likely will not be something that is necessary for us to do (Except perhaps for any libraries we write).</li>
+				<li>As a last resort you may ignore the exception, however only when you are absolutely certain that this is the appropriate action to take.  Also make sure to provide a comment as to why you feel that ignoring the exception is the correct course of action in this instance.</li>
+			</ul>
+		</div>
+		<div class="col">
+			void setServerPort(String value) {
+				try {
+					serverPort = Integer.parseInt(value);
+				} catch(NumberFormatException exception) {}
+			}
+
+			void setServerPort(String value)  {
+				try {
+					serverPort = Integer.parseInt(value);
+				} catch(NumberFormatException ex) {
+					serverPort = 80;  //default port for server
+				}
+			}
+		</div>
 	</div>
 	<div class="section">
 		<div class="col">
-			<h3>Something</h3>
+			<h3>Don't catch generic exceptions</h3>
+			<p>Just don't do this.</p>
+
+			<h4>Some Alternatives</h4>
+			<ul>
+				<li>Catch each exception separately</li>
+				<li>Refactor your code to have more fine tuned error handling</li>
+				<li>Rethrow the exception.</li>
+			</ul>
 		</div>
 		<div class="col">
-			
+			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
+			try {
+				someComplicatedIOFunction();        // may throw IOException
+				someComplicatedParsingFunction();   // may throw ParsingException
+				someComplicatedSecurityFunction();  // may throw SecurityException
+
+			} catch (Exception e) {                 // I'll just catch all exceptions
+			handleError();                      // with one generic handler!
+		}
+	</div>
+</div>
+<div class="section">
+	<div class="col">
+		<h3>Don't Use Finalizers</h3>
+		<p>Refer to link at beginning of document.</p>
+	</div>
+	<div class="col">
+		{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
+	</div>
+</div>
+<div class="section">
+	<div class="col">
+		<h3>Description:</h3>
+		<p>This Document is to give an overview of Android codeing style guidelines we wish to follow at Lightning Kite.  At this point we wish to follow most of the guidelines given here [Android  Code Guidelines](https://source.android.com/source/code-style.html).  The purpose of this document therefore is to give a more brief outline, comment on some of the guidelines at the afore mentioned URL, and be able to add any additional guidelines that we wish to follow.</p>
+	</div>
+	<div class="col">
+		{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
+	</div>
+</div>
+<div class="section">
+	<div class="col">
+		<h3>Fully Qualify Imports</h3>
+		<p>For example import android.widget.Button, rather than import android.widget.*
+			<p>The exception to this rule is java standard libraries such as java.util and java.io</p>
+		</div>
+		<div class="col">
+			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
+		</div>
+	</div>
+	<div class="section">
+		<div class="col">
+			<h3>Comments</h3>
+			<p>Not too concerned here with doing the Javadoc standard comments needed by the Javadoc tool.  But we should comment on our classes and non trivial functions and give a brief description of what they are doing.</p>
+		</div>
+		<div class="col">
+			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
+		</div>
+	</div>
+	<div class="section">
+		<div class="col">
+			<h3>Write Short Methods.</h3>
+			<p>This helps to keep things modular and easy to read, and lends to the principle of having your methods fulfill a single purpose, which makes your methods more testable.</p>
+		</div>
+		<div class="col">
+			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
+		</div>
+	</div>
+	<div class="section">
+		<div class="col">
+			<h3>Define Fields in Standard Places</h3>
+			<p>Define fields either at the beginning of the file or just prior to the method that uses them.</p>
+		</div>
+		<div class="col">
+			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
+		</div>
+	</div>
+	<div class="section">
+		<div class="col">
+			<h3>Limit Variable Scope</h3>
+			<p>The scope of local variables should be kept to a minimum.  Each variable should be declared in the innermost block that encloses all uses of the variable.</p>
+			<p>The exception to the rule being when dealing with try catch blocks.</p>
+		</div>
+		<div class="col">
+			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
+			// Instantiate class cl, which represents some sort of Set
+			Set s = null;
+			try {
+				s = (Set) cl.newInstance();
+			} catch(IllegalAccessException e) {
+				throw new IllegalArgumentException(cl + " not accessible");
+			} catch(InstantiationException e) {
+				throw new IllegalArgumentException(cl + " not instantiable");
+			}
+
+			s.addAll(Arrays.asList(args));
+		</div>
+	</div>
+	<div class="section">
+		<div class="col">
+			<h3>Use spaces for indentation.</h3>
+			<p>4 spaces for indent blocks, and 8 spaces for line wraps.</p>
+		</div>
+		<div class="col">
+			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
+		</div>
+	</div>
+	<div class="section">
+		<div class="col">
+			<h3>Follow field naming conventions.</h3>
+			<ul>
+				<li>Protected and private fields start with an m.</li>
+				<li>Static field names start with an s.</li>
+				<li>Other fields follow standard camelcasing.</li>
+				<li>Use all caps and underscores for public static final fields.</li>
+			</ul>
+		</div>
+		<div class="col">
+			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
+		</div>
+	</div>
+	<div class="section">
+		<div class="col">
+			<h3>Use Standard Brace Style</h3>
+			<p>See examples on the right.</p>
+		</div>
+		<div class="col">
+			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
+			if(someNum < MAX && someNum > MIN) {
+				doSomething();
+			}
+
+			//I prefer the above but will also accept
+			if(someNum < MAX && someNum > MIN)
+			{
+
+			}
+
+			//don't do this.
+			if(someNum > MAX && someNum < MIN)
+			doSomething();
+		</div>
+	</div>
+	<div class="section">
+		<div class="col">
+			<h3>Limit Line Length</h3>
+			<p>Limit your lines of text to be no more than 100 characters.  I beleive Android Studio displays a line showing where 100 characters is by default.</p>
+			<p>Exceptions would be</p>
+			<ul>
+				<li>A comment that has a url or example command that is longer than 100 characters.</li>
+				<li>import lines</li>
+			</ul>
+		</div>
+		<div class="col">
+			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
+		</div>
+	</div>
+	<div class="section">
+		<div class="col">
+			<h3>Use Standard Java Annotations</h3>
+			<p>@Deprecated, @Override, and @SuppressWarnings.  Always try to eliminate warnings rather than suppress them, use @SuppressWarnings only if you feel that the warning is impossible to eliminate.</p>
+		</div>
+		<div class="col">
+			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
+		</div>
+	</div>
+	<div class="section">
+		<div class="col">
+			<h3>Use TODO Comments</h3>
+			<p>Use this for code that can be improved or also of course something that needs to be done in the future.</p>
+		</div>
+		<div class="col">
+			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
+		</div>
+	</div>
+	<div class="section">
+		<div class="col">
+			<h3>Log Sparingly</h3>
+			<p>Too many logs does start to look messy, besides it also decreases the performance of the app.  For more info refer to the link given at the top of this document.</p>
+		</div>
+		<div class="col">
+			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
+		</div>
+	</div>
+	<div class="section">
+		<div class="col">
+			<h3>Follow Test Method Naming Conventions.</h3>
+			<p>use underscores to separate what is being tested from the case that is being tested.</p>
+		</div>
+		<div class="col">
+			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
+			testMethod_specificCase1 testMethod_specificCase2
+
+			void testIsDistinguishable_protanopia() {
+				ColorMatcher colorMatcher = new ColorMatcher(PROTANOPIA)
+				assertFalse(colorMatcher.isDistinguishable(Color.RED, Color.BLACK))
+				assertTrue(colorMatcher.isDistinguishable(Color.X, Color.Y))
+			}
 		</div>
 	</div>
 </div>
