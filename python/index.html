@@ -4,33 +4,159 @@ layout: default
 
 
 <div class="lk-content">
-	<div class="heading">
-		<h2>Python - Table of contents</h2>
-	</div>
-	<div class="section">
-		<div class="col">
-			<h4>
-				<a href="">HTML</a>
-			</h4>
-			<ul>
-				<li><a href="">Link</a></li>
-			</ul>
-		</div>
-		<div class="col">
-			<h4>
-				<a href="">CSS</a>
-			</h4>
-			<ul>
-				<li><a href="">Link</a></li>
-			</ul>
-		</div>
-	</div>
-	<div class="section">
-		<div class="col">
-			<h3>Something</h3>
-		</div>
-		<div class="col">
-			
-		</div>
-	</div>
+    <div class="heading">
+        <h2>Python - Table of contents</h2>
+    </div>
+    <div class="section">
+        <div class="col">
+            <h4>
+                <a href="#python">Python</a>
+            </h4>
+            <ul>
+                <li><a href="#pep8">PEP 8</a></li>
+                <li><a href="#naming">Naming Conventions</a></li>
+                <li><a href="#spacing">Spacing and Indentation</a></li>
+            </ul>
+            <h4>
+                <a href="#django">Django</a>
+            </h4>
+            <ul>
+                <li><a href="#models">Models</a></li>
+                <li><a href="#views">Views</a></li>
+                <li><a href="#templates">Templates</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Python header -->
+    <div class="heading" id="python">
+        <h2>Python</h2>
+    </div>
+    <!-- end python -->
+
+    <!-- PEP 8 section -->
+    <div class="section" id="pep8">
+        <div class="col">
+            <h3>PEP 8</h3>
+            <p>
+                Unless otherwise specified PEP 8 standards should be written for all Python code. The easiest way to get up to speed with PEP 8 standards is using the flake8 python linter.
+            </p>
+            <p>
+                For more info on PEP 8 standards check out the official guide: <a href="https://www.python.org/dev/peps/pep-0008/" target="_blank">https://www.python.org/dev/peps/pep-0008/</a>. The Lightning Kite style guide will only outline a few of the most common PEP 8 standards.
+            </p>
+        </div>
+        <div class="col">
+            {% highlight bash %}{% include python/flake8.sh %}{% endhighlight %}
+        </div>
+    </div>
+    <!-- end PEP 8 -->
+
+    <!-- Naming convention sections -->
+    <div class="section" id="naming">
+        <div class="col">
+            <h3>Naming Conventions</h3>
+            <ul>
+                <li>
+                    Use underscores, not camelCase, for variable, function and method names (i.e. <code>poll.get_unique_voters()</code>, not <code>poll.getUniqueVoters</code>).
+                </li>
+                <li>
+                    Use InitialCaps for class names (or for factory functions that return classes).
+                </li>
+            </ul>
+        </div>
+        <div class="col">
+            {% highlight python %}{% include python/naming.py %}{% endhighlight %}
+        </div>
+    </div>
+    <!-- end naming conventions -->
+
+    <!-- Spacing and Indentation -->
+    <div class="section" id="spacing">
+        <div class="col">
+            <h3>Spacing and Indentation</h3>
+            <ul>
+                <li>
+                   Class definitions should be separated by two line breaks returns.
+                </li>
+                <li>
+                    Function and method definitions should be separated by only one line break.
+                </li>
+                <li>
+                    A good rule of thumb is to limit line length to no more than 79 characters, however if limiting a certain line to 79 characters makes the code significantly uglier or harder to read don't worry about it. See the django docs <a href="https://docs.djangoproject.com/en/1.7/internals/contributing/writing-code/coding-style/" target="_blank">style guide.</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col">
+            {% highlight python %}{% include python/spacing.py %}{% endhighlight %}
+        </div>
+    </div>
+    <!-- end spacing and indentation -->
+
+    <!-- Django header -->
+    <div class="heading" id="django">
+        <h2>Django</h2>
+    </div>
+    <!-- end django header -->
+
+    <!-- Model section -->
+    <div class="section" id="models">
+        <div class="col">
+            <h3>Models</h3>
+            <ul>
+                <li>Field names should be all lowercase, using underscores instead of camelCase.</li>
+                <li>The class Meta should appear after the fields are defined, with a single blank line separating the fields and the class definition.</li>
+                <li>
+                    The order of model inner classes and standard methods should be as follows (noting that these are not all required):
+                    <ul>
+                        <li>All database fields</li>
+                        <li>Custom manager attributes</li>
+                        <li>class Meta</li>
+                        <li>def __str__()</li>
+                        <li>def save()</li>
+                        <li>def get_absolute_url()</li>
+                        <li>Any custom methods</li>
+                    </ul>
+                </li>
+                <li>If choices is defined for a given model field, define each choice as a tuple of tuples, with an all-uppercase name as a class attribute on the model. See example to the right:</li>
+            </ul>
+        </div>
+        <div class="col">
+            <p>
+                {% highlight python %}{% include python/models.py %}{% endhighlight %}
+            </p>
+        </div>
+    </div>
+    <!-- end model section -->
+
+
+    <!-- View section -->
+    <div class="section" id="views">
+        <div class="col">
+            <h3>Views</h3>
+            <p>
+                In Django views, the first parameter in a view function should be called <code>request</code>.
+            </p>
+        </div>
+        <div class="col">
+            <p>
+                {% highlight python %}{% include python/views.py %}{% endhighlight %}
+            </p>
+        </div>
+    </div>
+    <!-- end view section -->
+
+    <!-- Template section -->
+    <div class="section" id="templates">
+        <div class="col">
+            <h3>Templates</h3>
+            <p>
+                In Django template code, put one (and only one) space between the curly brackets and the tag contents.
+            </p>
+        </div>
+        <div class="col">
+            {% highlight html %}{% include python/template.html %}{% endhighlight %}
+        </div>
+    </div>
+    <!-- end template section -->
+
 </div>
