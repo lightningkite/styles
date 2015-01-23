@@ -2,7 +2,6 @@ void setServerPort(String value) {
 	try {
 		serverPort = Integer.parseInt(value);
 	} catch(NumberFormatException exception) {}
-	}
 
 	void setServerPort(String value)  {
 		try {
