@@ -32,14 +32,13 @@ layout: default
 			<p>This Document is to give an overview of Java codeing style guidelines we wish to follow at Lightning Kite.  At this point we wish to follow most of the guidelines given here [Android  Code Guidelines](https://source.android.com/source/code-style.html).  The purpose of this document therefore is to give a more brief outline, comment on some of the guidelines at the afore mentioned URL, and be able to add any additional guidelines that we wish to follow.</p>
 		</div>
 		<div class="col">
-			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
 		</div>
 	</div>
 
 	<div class="section">
 		<div class="col">
 			<h3>Don't Ignore Exceptions</h3>
-			<p>This almost always is the incorrect thing to do and the exception can be handled in a more appropriate way.</p>
+			<p>This almost always is the incorrect thing to do.(First code example) The exception usually can be handled in a more appropriate way.</p>
 			<h4>Acceptable alternatives</h4>
 			<ul>
 				<li>Throw the exception up to the caller of your method, this allows you to throw the exception up to a level where you can handle the exception gracefully and appropriately.</li>
@@ -50,19 +49,7 @@ layout: default
 			</ul>
 		</div>
 		<div class="col">
-			void setServerPort(String value) {
-				try {
-					serverPort = Integer.parseInt(value);
-				} catch(NumberFormatException exception) {}
-			}
-
-			void setServerPort(String value)  {
-				try {
-					serverPort = Integer.parseInt(value);
-				} catch(NumberFormatException ex) {
-					serverPort = 80;  //default port for server
-				}
-			}
+			{% highlight java %}{% include java/DontIgnore.java %}{% endhighlight %}
 		</div>
 	</div>
 
@@ -79,15 +66,7 @@ layout: default
 			</ul>
 		</div>
 		<div class="col">
-			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
-			try {
-				someComplicatedIOFunction();        // may throw IOException
-				someComplicatedParsingFunction();   // may throw ParsingException
-				someComplicatedSecurityFunction();  // may throw SecurityException
-
-			} catch (Exception e) {                 // I'll just catch all exceptions
-			handleError();                      // with one generic handler!
-		}
+			{% highlight java %}{% include java/GenericExceptions.java %}{% endhighlight %}
 	</div>
 
 	<div class="section">
@@ -96,7 +75,6 @@ layout: default
 			<p>Refer to link at beginning of document.</p>
 		</div>
 		<div class="col">
-			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
 		</div>
 	</div>
 
@@ -106,7 +84,6 @@ layout: default
 			<p>This Document is to give an overview of Android codeing style guidelines we wish to follow at Lightning Kite.  At this point we wish to follow most of the guidelines given here [Android  Code Guidelines](https://source.android.com/source/code-style.html).  The purpose of this document therefore is to give a more brief outline, comment on some of the guidelines at the afore mentioned URL, and be able to add any additional guidelines that we wish to follow.</p>
 		</div>
 		<div class="col">
-			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
 		</div>
 	</div>
 
@@ -117,7 +94,6 @@ layout: default
 				<p>The exception to this rule is java standard libraries such as java.util and java.io</p>
 			</div>
 			<div class="col">
-				{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
 			</div>
 		</div>
 	</div>
@@ -128,7 +104,6 @@ layout: default
 			<p>Not too concerned here with doing the Javadoc standard comments needed by the Javadoc tool.  But we should comment on our classes and non trivial functions and give a brief description of what they are doing.</p>
 		</div>
 		<div class="col">
-			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
 		</div>
 	</div>
 
@@ -138,7 +113,6 @@ layout: default
 			<p>This helps to keep things modular and easy to read, and lends to the principle of having your methods fulfill a single purpose, which makes your methods more testable.</p>
 		</div>
 		<div class="col">
-			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
 		</div>
 	</div>
 
@@ -148,7 +122,6 @@ layout: default
 			<p>Define fields either at the beginning of the file or just prior to the method that uses them.</p>
 		</div>
 		<div class="col">
-			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
 		</div>
 	</div>
 
@@ -159,18 +132,7 @@ layout: default
 			<p>The exception to the rule being when dealing with try catch blocks.</p>
 		</div>
 		<div class="col">
-			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
-			// Instantiate class cl, which represents some sort of Set
-			Set s = null;
-			try {
-				s = (Set) cl.newInstance();
-			} catch(IllegalAccessException e) {
-				throw new IllegalArgumentException(cl + " not accessible");
-			} catch(InstantiationException e) {
-				throw new IllegalArgumentException(cl + " not instantiable");
-			}
-
-			s.addAll(Arrays.asList(args));
+			{% highlight java %}{% include java/LimitScope.java %}{% endhighlight %}
 		</div>
 	</div>
 
@@ -180,7 +142,6 @@ layout: default
 			<p>4 spaces for indent blocks, and 8 spaces for line wraps.</p>
 		</div>
 		<div class="col">
-			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
 		</div>
 	</div>
 
@@ -195,7 +156,6 @@ layout: default
 			</ul>
 		</div>
 		<div class="col">
-			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
 		</div>
 	</div>
 
@@ -205,20 +165,7 @@ layout: default
 			<p>See examples on the right.</p>
 		</div>
 		<div class="col">
-			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
-			if(someNum < MAX && someNum > MIN) {
-				doSomething();
-			}
-
-			//I prefer the above but will also accept
-			if(someNum < MAX && someNum > MIN)
-			{
-
-			}
-
-			//don't do this.
-			if(someNum > MAX && someNum < MIN)
-			doSomething();
+			{% highlight java %}{% include java/StandardBraceStyle.java %}{% endhighlight %}
 		</div>
 	</div>
 
@@ -233,7 +180,6 @@ layout: default
 			</ul>
 		</div>
 		<div class="col">
-			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
 		</div>
 	</div>
 
@@ -243,7 +189,6 @@ layout: default
 			<p>@Deprecated, @Override, and @SuppressWarnings.  Always try to eliminate warnings rather than suppress them, use @SuppressWarnings only if you feel that the warning is impossible to eliminate.</p>
 		</div>
 		<div class="col">
-			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
 		</div>
 	</div>
 
@@ -253,7 +198,6 @@ layout: default
 			<p>Use this for code that can be improved or also of course something that needs to be done in the future.</p>
 		</div>
 		<div class="col">
-			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
 		</div>
 	</div>
 
@@ -263,7 +207,6 @@ layout: default
 			<p>Too many logs does start to look messy, besides it also decreases the performance of the app.  For more info refer to the link given at the top of this document.</p>
 		</div>
 		<div class="col">
-			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
 		</div>
 	</div>
 
@@ -273,14 +216,7 @@ layout: default
 			<p>use underscores to separate what is being tested from the case that is being tested.</p>
 		</div>
 		<div class="col">
-			{% highlight java %}{% include html/syntax.html %}{% endhighlight %}
-			testMethod_specificCase1 testMethod_specificCase2
-
-			void testIsDistinguishable_protanopia() {
-				ColorMatcher colorMatcher = new ColorMatcher(PROTANOPIA)
-				assertFalse(colorMatcher.isDistinguishable(Color.RED, Color.BLACK))
-				assertTrue(colorMatcher.isDistinguishable(Color.X, Color.Y))
-			}
+			{% highlight java %}{% include java/TestConventions.java %}{% endhighlight %}
 		</div>
 	</div>
 
