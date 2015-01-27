@@ -10,27 +10,236 @@ layout: default
 	<div class="section">
 		<div class="col">
 			<h4>
-				<a href="">HTML</a>
-			</h4>
+                <a href="#variables">Variables and functions</a>
+            </h4>
 			<ul>
-				<li><a href="">Link</a></li>
-			</ul>
-		</div>
-		<div class="col">
-			<h4>
-				<a href="">CSS</a>
-			</h4>
+                <li><a href="#naming">Naming Conventions</a></li>
+                <li><a href="#self">Use of Self</a></li>
+            </ul>
+            <h4>
+                <a href="#types">Types</a>
+            </h4>
 			<ul>
-				<li><a href="">Link</a></li>
-			</ul>
-		</div>
+                <li><a href="#constants">Constants</a></li>
+                <li><a href="#optionals">Optionals</a></li>
+            </ul>
+            <h4>
+            	<a href="#comments">Comments</a>
+            </h4>
+            <ul>
+            	<li><a href="#mark">MARK:</a></li>
+            </ul>
+            <h4>
+            	<a href="#spacing">Spacing</a>
+            </h4>
+
+            <!-- Remarks section -->
+	        <div class="col">
+	        	<h3>Remarks</h3>
+	            <p>
+	            	Most of this is inspired by (and shamelessly stolen from) <a href="https://github.com/raywenderlich/swift-style-guide">The Official raywenderlich.com Swift Style Guide</a> and <a href="http://sportngin.github.io/styleguide/swift.html">The Sport Ngin Swift Style Guide</a>. For anything this guide doesn't cover, please refer to <a href="https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html">Apple's Coding Guidelines for Cocoa</a> and <a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/">Apple's Swift Programming Guide</a>
+	            </p>
+	        </div>
+	        <!-- end Remarks -->
+        </div>
+        <div class="col">
+        </div>
 	</div>
-	<div class="section">
-		<div class="col">
-			<h3>Something</h3>
-		</div>
-		<div class="col">
-			
-		</div>
-	</div>
+
+	<!-- Variables header -->
+    <div class="heading" id="variables">
+        <h2>Variables and functions</h2>
+    </div>
+    <!-- end Variables -->
+
+    <!-- Naming section -->
+    <div class="section" id="naming">
+        <div class="col">
+            <h3>Naming Conventions</h3>
+            <ul>
+                <li>
+                    All variable, class and function names should be descriptive and self-documenting. Single letter variable names should be avoided except in <code>for</code> loops.
+                </li>
+                <li>
+                    Always use <code>camelCase</code> instead of  <code>snake_case</code>
+                </li>
+                <li>
+                	Class and constant names should start with an initial capital, all others should start lowercase
+                </li>
+                <li>
+                	Prefer named parameters for functions and init methods, unless the context is clear from the method name. 
+                </li>
+                <li>
+                	Follow the Apple convention of referring to the first parameter in the method name
+                </li>
+            </ul>
+        </div>
+        <div class="col">
+            {% highlight swift %}{% include swift/naming.swift %}{% endhighlight %}
+        </div>
+    </div>
+    <!-- end Naming -->
+
+    <!-- Self section -->
+    <div class="section" id="self">
+        <div class="col">
+            <h3>Use of Self</h3>
+            <p>
+	            To keep code clear and concise, avoid using <code>self</code> to access properties or invoke methods. The exception to this is when inside a closure, or when differentiating between property names and arguments in initializers. The compiler will complain when self is not used inside of a closure.
+            </p>
+        </div>
+        <div class="col">
+            {% highlight swift %}{% include swift/self.swift %}{% endhighlight %}
+        </div>
+    </div>
+    <!-- end Self -->
+
+	<!-- Types header -->
+    <div class="heading" id="types">
+        <h2>Types</h2>
+    </div>
+    <!-- end Types -->
+
+    <!-- Types section -->
+    <div class="section">
+        <div class="col">
+            <ul>
+            	<li>
+            		Always use Swift's native types when possible, however, Swift offers bridging to Objective-C so the full set of methods is available if needed.
+            	</li>
+            	<li>
+            		When specifing a type of an identifier, always put the colon immediately after the identifier, followed by a space and then the type name.
+            	</li>
+            	<li>
+            		Always prefer implicit type declarations. The type can be explicitly defined by a type alias if needed.
+            	</li>
+            	<li>
+            		Prefer the shortcut versions of type declarations over the full generics syntax.
+            	</li>
+            </ul>
+        </div>
+        <div class="col">
+            {% highlight swift %}{% include swift/types.swift %}{% endhighlight %}
+        </div>
+    </div>
+    <!-- end Types -->
+
+    <!-- Constants section -->
+    <div class="section" id="constants">
+        <div class="col">
+            <h3>Constants</h3>
+            <p>
+            	Prefer constant declarations with <code>let</code> over variable declarations with <code>var</code> wherever possible. Only use var when you know the value might change, like when using <code>weak</code> storage.
+            </p>
+            <p>
+            	It may help to define everything with <code>let</code> and change it to <code>var</code> when the compiler complains.
+            </p>
+        </div>
+        <div class="col">
+            {% highlight swift %}{% include swift/constants.swift %}{% endhighlight %}
+        </div>
+    </div>
+    <!-- end Constants -->
+
+    <!-- Optionals section -->
+    <div class="section" id="optionals">
+        <div class="col">
+            <h3>Optionals</h3>
+            <ul>
+            	<li>
+            		Declare variables and function return types as optional with <code>?</code> where a nil value is acceptable
+            	</li>
+            	<li>
+            		Use implicitly unwrapped types declared with <code>!</code> only for instance variables that you know will be initialized later before use, such as subviews that will be set up in viewDidLoad, variables that will be setup in an init method, or <code>@IBOutlets</code> that will be initialized by the storyboard.
+            	</li>
+            	<li>
+            		When accessing an optional value, prefer optional chaining if the value is only used once, or if there are many optionals in the chain. If it is more convenient to unwrap once and use multiple times, then use optional binding.
+            	</li>
+            	<li>
+            		Avoid naming an optional variable or property like <code>optionalString</code> or <code>maybeView</code> because there optional-ness is already in the type declaration
+            	</li>
+            </ul>
+        </div>
+        <div class="col">
+            {% highlight swift %}{% include swift/optionals.swift %}{% endhighlight %}
+        </div>
+    </div>
+    <!-- end Optionals -->
+
+    <!-- Comments header -->
+    <div class="heading" id="comments">
+        <h2>Comments</h2>
+    </div>
+    <!-- end Comments -->
+
+    <!-- Comments section -->
+    <div class="section">
+        <div class="col">
+            <ul>
+            	<li>
+            		When they are needed, use comments to explain <b>why</b> a particular piece of code does something. Comments must be kept up-to-date.
+            	</li>
+            	<li>
+            		Avoid block comments inline with code, as the code should be as self-documenting as possible.
+            	</li>
+            	<li>
+            		Block comments should come before custom methods to generate documentation. They are not needed on system methods, like <code>viewDidLoad</code>
+            	</li>
+            </ul>
+        </div>
+        <div class="col">
+            {% highlight swift %}{% include swift/comments.swift %}{% endhighlight %}
+        </div>
+    </div>
+    <!-- end Comments -->
+
+    <!-- MARK section -->
+    <div class="section" id="mark">
+        <div class="col">
+            <h3>MARK:</h3>
+            <p>
+            	Use <code>//MARK:</code>s to categorize similar methods into functional groupings and protocol implementations
+            </p>
+            <p>
+            	Notice that there are <b>0</b> blank lines after a <code>//MARK:</code> declaration, <b>2</b> blank lines before the <code>//MARK:</code>, and <b>1</b> blank line between methods.
+            </p>
+        </div>
+        <div class="col">
+            {% highlight swift %}{% include swift/mark.swift %}{% endhighlight %}
+        </div>
+    </div>
+    <!-- end MARK -->
+
+    <!-- Spacing header -->
+    <div class="heading" id="spacing">
+        <h2>Spacing</h2>
+    </div>
+    <!-- end Spacing -->
+
+    <!-- Spacing section -->
+    <div class="section">
+        <div class="col">
+            <ul>
+            	<li>
+            		Indent using tabs, not spaces, with a width of 4 spaces
+            	</li>
+            	<li>
+            		Never use spaces between parentheses and their contents
+            	</li>
+            	<li>
+            		Method braces and other braces <code>if/else/for/switch/while etc.</code> always open on the same line as the statement, and close on a new line
+            	</li>
+            	<li>
+            		There should be exactly one blank line between methods to aid in visual clarity and organization. There should be exactly two blank lines before a <code>//MARK:</code> comment
+            	</li>
+            	<li>
+            		Whitespace within methods should separate functionality, but having too many sections in a method often means you should refactor into several methods.
+            	</li>
+            </ul>
+        </div>
+        <div class="col">
+            {% highlight swift %}{% include swift/spacing.swift %}{% endhighlight %}
+        </div>
+    </div>
+    <!-- end Spacing -->
 </div>
