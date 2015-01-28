@@ -2,7 +2,6 @@
 layout: default
 ---
 
-
 <div class="lk-content">
 	<!-- <div class="heading">
 		<h2>Java - Table of contents</h2>
@@ -29,7 +28,8 @@ layout: default
 	<div class="section">
 		<div class="col">
 			<h3>Description</h3>
-			<p>This Document is to give an overview of Java codeing style guidelines we wish to follow at Lightning Kite.  At this point we wish to follow most of the guidelines given here [Android  Code Guidelines](https://source.android.com/source/code-style.html).  The purpose of this document therefore is to give a more brief outline, comment on some of the guidelines at the afore mentioned URL, and be able to add any additional guidelines that we wish to follow.</p>
+			<p>This Document is to give an overview of Java codeing style guidelines we wish to follow at Lightning Kite.  At this point we wish to follow most of the guidelines given here <a href="https://source.android.com/source/code-style.html">Android  Code Guidelines</a>.  The purpose of this document therefore is to give a more brief outline, comment on some of the guidelines at the afore mentioned URL, and be able to add any additional guidelines that we wish to follow.</p>
+			<p>In the case that there is any inconsistency between this document and the one linked above, follow this document.</p>
 		</div>
 		<div class="col">
 		</div>
@@ -56,7 +56,7 @@ layout: default
 	<div class="section">
 		<div class="col">
 			<h3>Don't catch generic exceptions</h3>
-			<p>Just don't do this.</p>
+			<p>Absolutely do not do this, it can cause bugs that are difficult to track down.</p>
 
 			<h4>Some Alternatives</h4>
 			<ul>
@@ -67,6 +67,7 @@ layout: default
 		</div>
 		<div class="col">
 			{% highlight java %}{% include java/GenericExceptions.java %}{% endhighlight %}
+		</div>
 	</div>
 
 	<div class="section">

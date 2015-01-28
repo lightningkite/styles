@@ -2,7 +2,7 @@ if(someNum < MAX && someNum > MIN) {
 	doSomething();
 }
 
-//I prefer the above but will also accept
+//I prefer the above but will grudgingly accept
 if(someNum < MAX && someNum > MIN)
 {
 	doSomething();

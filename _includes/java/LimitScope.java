@@ -1,4 +1,7 @@
-// Instantiate class cl, which represents some sort of Set
+/*
+*This would be the exception to the rule,  when using try catch blocks you often
+*do not want to limit the scope of the variable to just the try block.
+*/
 Set s = null;
 try {
 	s = (Set) cl.newInstance();

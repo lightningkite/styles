@@ -1,13 +1,14 @@
 void setServerPort(String value) {
+	// don't do this.
 	try {
 		serverPort = Integer.parseInt(value);
-	} catch(NumberFormatException exception) {}
+	} catch (NumberFormatException exception) {}
 
-	void setServerPort(String value)  {
-		try {
-			serverPort = Integer.parseInt(value);
-		} catch(NumberFormatException ex) {
-			serverPort = 80;  //default port for server
-		}
+	//yes do this.
+	try {
+		serverPort = Integer.parseInt(value);
+	} catch (NumberFormatException ex) {
+		serverPort = 80;  //default port for server
 	}
+
 }
