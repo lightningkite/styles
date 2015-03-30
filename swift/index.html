@@ -30,7 +30,13 @@ layout: default
             	<li><a href="#mark">MARK:</a></li>
             </ul>
             <h4>
-            	<a href="#spacing">Spacing</a>
+                <a href="#spacing">Spacing</a>
+            </h4>
+            <h4>
+                <a href="#Xcode">Xcode Project</a>
+            </h4>
+            <h4>
+            	<a href="#tests">Tests</a>
             </h4>
 
             <!-- Remarks section -->
@@ -203,6 +209,12 @@ layout: default
             <p>
             	Notice that there are <b>0</b> blank lines after a <code>//MARK:</code> declaration, <b>2</b> blank lines before the <code>//MARK:</code>, and <b>1</b> blank line between methods.
             </p>
+            <p>
+                A hyphen after the <code>MARK:</code> will cause Xcode to draw a seperator line in the jump bar. Use this to seperate very different sections of code, like property declarations, from view methods.
+            </p>
+            <p>
+                Xcode also supports <code>TODO:</code> and <code>FIXME</code> landmarks to annotate your code in the jump bar.
+            </p>
         </div>
         <div class="col">
             {% highlight swift %}{% include swift/mark.swift %}{% endhighlight %}
@@ -224,13 +236,16 @@ layout: default
             		Indent using tabs, not spaces, with a width of 4 spaces
             	</li>
             	<li>
-            		Never use spaces between parentheses and their contents
+            		Never use spaces between parentheses and their contents, but always leave one space before the opening parenthesis for a <code>if/else/for/switch/while</code> condition
             	</li>
+                <li>
+                    Parentheses are not required for <code>if/else/for/switch/while</code> conditions. Only add them for complicated conditions when it adds clarity. Long conditions can also be split on to multiple lines for clarity.
+                </li>
             	<li>
             		Method braces and other braces <code>if/else/for/switch/while etc.</code> always open on the same line as the statement, and close on a new line
             	</li>
             	<li>
-            		There should be exactly one blank line between methods to aid in visual clarity and organization. There should be exactly two blank lines before a <code>//MARK:</code> comment
+            		There should be exactly one blank line between methods to aid in visual clarity and organization. There should be exactly two blank lines before a <code>//MARK:</code> or a <code>/** */</code> documentation comment
             	</li>
             	<li>
             		Whitespace within methods should separate functionality, but having too many sections in a method often means you should refactor into several methods.
@@ -242,4 +257,117 @@ layout: default
         </div>
     </div>
     <!-- end Spacing -->
+
+    <!-- Xcode header -->
+    <div class="heading" id="Xcode">
+        <h2>Xcode Project</h2>
+    </div>
+    <!-- end Xcode -->
+
+    <!-- Xcode section -->
+    <div class="section">
+        <div class="col">
+            <ul>
+                <li>
+                    The directory structure should be kept in sync with the file groups Xcode
+                </li>
+                <li>
+                    Files within groups should be kept alphabetized
+                </li>
+                <li>
+                    Multiple similar files may be grouped together in Xcode and on the file system in a directory
+                </li>
+                <li>
+                    <b>Project Structure</b>
+                    <ul>
+                        <li>
+                            Base folder (Contains git files and other non-Xcode configuration files as necessary)
+                            <ul>
+                                <li><code>Pods/</code> (if using CocoaPods)</li>
+                                <li><code>ProjectName/</code></li>
+                                <li><code>ProjectNameTests/</code></li>
+                                <li><code>ProjectName.xcodeproj/</code></li>
+                                <li><code>ProjectName.xcodeworkspace/ (if using CocoaPods)</code></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <li>
+                        There should be no files directory within an Xcode ProjectName directory, or not inside a group in the Xcode project structure. The subfolders and corresponding groups should follow this structure. All class names should match their corresponding file names.
+                        <ul>
+                            <li>
+                                <code>ProjectName/</code>
+                                <ul>
+                                    <li>
+                                        <code>Models/</code> (Contains all model classes)
+                                        <ul>
+                                            <li><code>ProjectName.xcdatamodeld</code> (if using Core Data)</li>
+                                            <li><code>RLMSupport.swift</code> (if using Realm)</li>
+                                        </ul>
+                                    </li>
+                                    <li><code>Views/</code> (Contains <code>.xib</code>'s and UI subclasses within a folder structure that mirrors the app navigation)</li>
+                                    <li><code>Storyboards/</code> (Contains <code>.storyboard</code>'s. For larger projects, the interface should be split up into multiple storyboards, eg. one for each tab on a tab bar. This will help organize the storyboard, and improve compile time.)</li>
+                                    <li><code>Controllers/</code> (Contains view controllers within a folder structure that mirrors the app navigation)</li>
+                                    <li><code>Base.lproj/</code> (if using localized strings)</li>
+                                    <li><code>Utilities/</code> (Contains utility classes and singletons)</li>
+                                    <li>
+                                        <code>Resources/</code>
+                                        <ul>
+                                            <li><code>Fonts/</code></li>
+                                            <li><code>Images/</code> (Contains <code>.xcassets</code> to group images for similar purposes. The bundle should be named like <code>Home.xcassets</code> and all internal images should be prefixed with <code>Home_</code> and should be in camel case with an initial capital, eg. <code>Home_Background</code>. Assets should be split up into multiple bundles to improve compile time, and ease in using assets.</li>
+                                            <li><code>Strings/</code> (Contains <code>.plist</code>'s for localized strings</li>
+                                        </ul>
+                                    </li>
+                                    <li><code>Supporting Files/</code> (<code>AppDelegate</code>, <code>InfoPlist</code>, <code>ProjectName-Info.plist</code>, <code>ProjectName-Prefix.pch</code>, <code>Bridging-headers</code>, etc</li>
+                                    <li><code>Frameworks/</code> (Any added frameworks and 3rd party classes added to the project including all git submodules)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </li>
+            </ul>
+        </div>
+        <div class="col">
+            {% highlight swift %}{% include swift/xcode.swift %}{% endhighlight %}
+        </div>
+    </div>
+    <!-- end Xcode -->
+
+    <!-- Tests header -->
+    <div class="heading" id="Tests">
+        <h2>Tests</h2>
+    </div>
+    <!-- end Tests -->
+
+    <!-- Tests section -->
+    <div class="section">
+        <div class="col">
+            <ul>
+                <li>
+                    Test class file structure should match the class file structure
+                </li>
+                <li>
+                    All test classes should have the same name as the corresponding class, with <code>Tests</code> appended. eg: <code>UtilsTests.swift</code>
+                </li>
+                <li>
+                    The class and file names should be the same
+                </li>
+                <li>
+                    All test classes should import XCTest and inherit from XCTestCase
+                </li>
+                <li>
+                    All test cases should start with <code>test</code>, and the rest of the name should describe the method that is being tested, and what is being tested in camel case, eg. <code>testValidateBlankUsername</code>
+                </li>
+                <li>
+                    Mock classes can be declared inline in the test case. This is a huge improvement over Objective-C where external mocking libraries were often used to ease the creation of fake data.
+                </li>
+                <li>
+                    For each test assertion, describe what went wrong if the assertion were to fail
+                </li>
+            </ul>
+        </div>
+        <div class="col">
+            {% highlight swift %}{% include swift/tests.swift %}{% endhighlight %}
+        </div>
+    </div>
+    <!-- end Tests -->
 </div>

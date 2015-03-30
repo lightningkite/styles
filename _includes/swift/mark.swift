@@ -1,16 +1,17 @@
 class SomeViewController: UIViewController, UITableViewDatasource, UITableViewDelegate {
-  //MARK: Properties
+  //MARK: - Properties
   @IBOutlet weak var tableView: UITableView!
   let cells = ["first cell", "second cell"]
 
 
-  //MARK: View Lifecycle
+  //MARK: - View Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
   }
 
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
+    //TODO: Finish this method
   }
 
 
@@ -25,6 +26,7 @@ class SomeViewController: UIViewController, UITableViewDatasource, UITableViewDe
 
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
+    //FIXME
     cell.textLabel?.text = cell[indexPath.row]
 
     return cell
