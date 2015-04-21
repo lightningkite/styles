@@ -7,8 +7,8 @@ layout: default
     <div class="heading">
         <h2>Python - Table of contents</h2>
     </div>
-    <div class="section">
-        <div class="col">
+    <div class="section table-of-contents">
+        <div class="col lk-col">
             <h4>
                 <a href="#python">Python</a>
             </h4>
@@ -17,6 +17,8 @@ layout: default
                 <li><a href="#naming">Naming Conventions</a></li>
                 <li><a href="#spacing">Spacing and Indentation</a></li>
             </ul>
+        </div>
+        <div class="col lk-col">
             <h4>
                 <a href="#django">Django</a>
             </h4>
@@ -24,6 +26,7 @@ layout: default
                 <li><a href="#models">Models</a></li>
                 <li><a href="#views">Views</a></li>
                 <li><a href="#templates">Templates</a></li>
+                <li><a href="#imports">Imports</a></li>
             </ul>
         </div>
     </div>
@@ -158,5 +161,21 @@ layout: default
         </div>
     </div>
     <!-- end template section -->
+
+    <!-- View section -->
+    <div class="section" id="imports">
+        <div class="col">
+            <h3>Imports</h3>
+            <p>
+                We like to alphabetize our imports and split them up into 4 main sections: Python libraries, django code, third party libraries, and our application code.
+            </p>
+        </div>
+        <div class="col">
+            <p>
+                {% highlight python %}{% include python/imports.py %}{% endhighlight %}
+            </p>
+        </div>
+    </div>
+    <!-- end view section -->
 
 </div>
