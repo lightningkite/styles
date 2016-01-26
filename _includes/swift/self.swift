@@ -5,7 +5,7 @@ class History {
         self.events = events
     }
 
-    var whenVictorious: () -> () {
+    var whenVictorious: (() -> ()) {
         return {
             self.rewrite()
         }

@@ -35,9 +35,7 @@ func anotherFunction() { //(1 space)
 }
 
 
-/**
- * Documented Function (2 spaces)
- */
+///Documented Function (2 spaces)
 func documentedFunction() {
 
 }

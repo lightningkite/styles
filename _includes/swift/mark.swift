@@ -35,6 +35,6 @@ class SomeViewController: UIViewController, UITableViewDatasource, UITableViewDe
 
   //MARK: Table View Delegate
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    println("selected cell at index: \(indexPath.row)")
+    print("selected cell at index: \(indexPath.row)")
   }
 }
