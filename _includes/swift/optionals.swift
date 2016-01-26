@@ -1,9 +1,12 @@
 var textContainer: TextContainerView?
 
 //Optional chaining
-self.textContainer?.textLabel?.setNeedsDisplay()
+textContainer?.textLabel?.setNeedsDisplay()
 
 //Optional binding
-if let textContainer = self.textContainer {
+if let textContainer = textContainer {
   // do many things with textContainer
 }
+
+//Optional binding with a guard
+guard let textContainer = textContainer else { return }

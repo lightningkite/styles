@@ -3,7 +3,7 @@ let width: NSNumber = 120.0
 //good
 let width = 120.0
 
-var submitButton: UIButton!
+var submitButton: UIButton
 let capitals = [Sweden: Stockholm]
 
 //bad

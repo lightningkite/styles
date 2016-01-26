@@ -5,11 +5,12 @@ class WidgetContainer {
 	let widgetHeightPercentage = 0.85
 }
 
+enum Directions {
+  case North, East, South, West
+}
+
 func dateFromString(dateString: NSString) -> NSDate
 dateFromString("2014-03-14")
 
-func convertPointAt(#column: Int, #row: Int) -> CGPoint
+func convertPointAt(column: Int, row: Int) -> CGPoint
 convertPointAt(column: 42, row: 13)
-
-func timedAction(#delay: NSTimeInterval, perform action: SKAction) -> SKAction!
-timedAction(delay: 1.0, perform: someOtherAction)
